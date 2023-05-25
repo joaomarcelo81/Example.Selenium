@@ -36,8 +36,6 @@ foreach (var item in listaBuscas)
     try
     {
 
-
-
         var curso = new DadosCurso();
 
         //"//*[@id=\"busca-resultados\"]/ul/li[2]/a"
