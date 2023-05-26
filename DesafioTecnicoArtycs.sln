@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Infra", "DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj", "{9D863633-BAF4-4C56-B9F8-7171DBBFCCC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Infra", "src/DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj", "{9D863633-BAF4-4C56-B9F8-7171DBBFCCC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Service", "1 - Service", "{35021FCE-6DC2-4232-A832-73B59D8A0B2E}"
 EndProject
@@ -15,13 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{CF89867C-2270-466E-A8FD-0AF0BF52DE11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Application", "DesafioTecnicoArtycs.Application\DesafioTecnicoArtycs.Application.csproj", "{1635C268-0DDE-41B5-BA5E-AD3A637E7812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Application", "src/DesafioTecnicoArtycs.Application\DesafioTecnicoArtycs.Application.csproj", "{1635C268-0DDE-41B5-BA5E-AD3A637E7812}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Domain", "DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj", "{A42698AD-20F3-4885-BBAB-3149140F9A7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Domain", "src/DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj", "{A42698AD-20F3-4885-BBAB-3149140F9A7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Ui", "DesafioTecnicoArtycs.Ui\DesafioTecnicoArtycs.Ui.csproj", "{3A5C51DF-42D6-4A73-9666-338FA2118887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Ui", "src/DesafioTecnicoArtycs.Ui\DesafioTecnicoArtycs.Ui.csproj", "{3A5C51DF-42D6-4A73-9666-338FA2118887}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.Test", "DesafioTecnicoArtycs.Test\DesafioTecnicoArtycs.Test.csproj", "{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.Test", "src/DesafioTecnicoArtycs.Test\DesafioTecnicoArtycs.Test.csproj", "{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -104,15 +104,7 @@ namespace DesafioTecnicoArtycs.Application
                         curso.Professor = "Sem Professor definido.";
                     }
 
-                    //await myClass.Adicionar(new Curso()
-                    //{
-                    //    Id = 1,
-                    //    DataCadastro = DateTime.Now,
-                    //    CargaHoraria= "8h",
-                    //    Descricao = "",
-                    //    Professor = "",
-                    //    Titulo = "teste"
-                    //});
+    
 
                     if (curso.Titulo != null && curso.Titulo != "")
                     {
