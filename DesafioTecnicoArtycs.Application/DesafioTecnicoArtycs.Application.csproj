@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj" />
+    <ProjectReference Include="..\DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="4.9.1" />
+  </ItemGroup>
+
 </Project>
