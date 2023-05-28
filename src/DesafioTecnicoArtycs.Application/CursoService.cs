@@ -37,8 +37,15 @@ namespace DesafioTecnicoArtycs.Application
             EventId eventId = new EventId();
 
             _logger.LogInformation(eventId, $"Adiciondo um curso", curso);
-
-            return await _cursoRepository.Add(curso);
+            try
+            {
+                return await _cursoRepository.Add(curso);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(eventId, ex, $"ao adicionar um curso", curso);
+                throw;
+            }
         }
 
         public async Task<Curso> Atualizar(Curso curso)
@@ -46,8 +53,16 @@ namespace DesafioTecnicoArtycs.Application
             EventId eventId = new EventId();
 
             _logger.LogInformation(eventId, $"atualizando um curso", curso);
-
-            return await _cursoRepository.Update(curso);
+            try
+            {
+                return await _cursoRepository.Update(curso);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(eventId, ex, $"Erro ao atualizar um curso", curso);
+                throw;
+            }
+         
         }
 
 
@@ -56,13 +71,21 @@ namespace DesafioTecnicoArtycs.Application
             EventId eventId = new EventId();
 
             _logger.LogInformation(eventId, $"listando todos os cursos");
-
-            return await _cursoRepository.GetAll();
+            try
+            {
+                return await _cursoRepository.GetAll();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(eventId, ex, $"Erro ao listar todos os cursos");
+                throw;
+            }
+         
         }
 
 
 
-        public async Task BuscarDadosAlura()
+        public async Task BuscarDadosAlura(string busca)
         {
 
             EventId eventId = new EventId();
@@ -77,7 +100,7 @@ namespace DesafioTecnicoArtycs.Application
 
             IWebDriver driver = new ChromeDriver(_settings.CaminhoWebDriverChrome, chromeOptions);
 
-            AbrirPortal(driver);
+            AbrirPortal(driver, busca);
 
             var listaBuscas = driver.FindElements(By.ClassName("busca-resultado-container"));
             var counter = 1;
@@ -87,9 +110,6 @@ namespace DesafioTecnicoArtycs.Application
                 var curso = new DadosCurso();
                 try
                 {
-                    // Logger.DEBUG(item?.Text);
-
-
                     var itemBuscado = driver.FindElement(By.XPath($"/html/body/div[2]/div[2]/section/ul/li[{counter}]/a/div/h4")).Text;
 
                     driver.FindElement(By.XPath($"//*[@id=\"busca-resultados\"]/ul/li[{counter}]/a")).Click();
@@ -158,12 +178,11 @@ namespace DesafioTecnicoArtycs.Application
                 }
                 catch (Exception ex)
                 {
-                    //Logger.ERROR(ex.Message);
-                    _logger.LogInformation(eventId, ex
+                    _logger.LogWarning(eventId, ex
                         , @"Ocorreu um erro ao buscar os dados do site na busca {counter}º ", curso);
                     if (ex.Message.IndexOf("busca-resultados") > 0)
                     {
-                        AbrirPortal(driver);
+                        AbrirPortal(driver, busca);
                     }
                     driver.Navigate().Back();
                     if (counter > 0)
@@ -175,7 +194,7 @@ namespace DesafioTecnicoArtycs.Application
 
         }
 
-        private static void AbrirPortal(IWebDriver driver)
+        private static void AbrirPortal(IWebDriver driver, string busca)
         {       
 
             driver.Navigate().GoToUrl("https://www.alura.com.br/");
@@ -183,11 +202,11 @@ namespace DesafioTecnicoArtycs.Application
 
             var porId = driver.FindElement(By.XPath("//*[@id=\"header-barraBusca-form-campoBusca\"]"));
 
-            porId.SendKeys("RPA");
+            porId.SendKeys(busca);
 
             driver.FindElement(By.XPath("/html/body/div[2]/div/header/div/nav/div[2]/div/form/button")).Click();
             Thread.Sleep(1000);
-            Logger.INFO("Buscando o RPA");
+            Logger.INFO($"Buscando o {busca}");
         }
     }
 }

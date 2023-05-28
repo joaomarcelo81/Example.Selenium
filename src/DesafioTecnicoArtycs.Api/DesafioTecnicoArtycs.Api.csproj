@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +32,14 @@
     <ProjectReference Include="..\DesafioTecnicoArtycs.CrossCutting.IoC\DesafioTecnicoArtycs.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj" />
     <ProjectReference Include="..\DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Selenium\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Selenium\chromedriver\chromedriver.exe" Link="Selenium\chromedriver.exe" />
   </ItemGroup>
 
 </Project>
