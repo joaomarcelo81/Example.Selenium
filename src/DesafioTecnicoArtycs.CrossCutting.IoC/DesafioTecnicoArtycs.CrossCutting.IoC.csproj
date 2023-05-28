@@ -1,20 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Selenium.WebDriver" Version="4.9.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DesafioTecnicoArtycs.Application\DesafioTecnicoArtycs.Application.csproj" />
     <ProjectReference Include="..\DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj" />
-    <ProjectReference Include="..\DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj" />
   </ItemGroup>
 
 </Project>

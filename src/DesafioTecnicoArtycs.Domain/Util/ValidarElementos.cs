@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesafioTecnicoArtycs.Ui.Util
+namespace DesafioTecnicoArtycs.Domain.Util
 {
     public static class ValidarElementos
     {
