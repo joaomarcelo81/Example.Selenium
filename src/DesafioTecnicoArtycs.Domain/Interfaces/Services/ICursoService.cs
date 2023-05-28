@@ -9,9 +9,11 @@ namespace DesafioTecnicoArtycs.Domain.Interfaces.Services
 {
     public interface ICursoService
     {
+
+        Task<Curso> Atualizar(Curso curso);
         Task<Curso> Adicionar(Curso curso);
         Task<IList<Curso>> listaCursos();
 
-        void BuscarDadosAlura();
+        Task BuscarDadosAlura();
     }
 }

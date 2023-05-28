@@ -49,6 +49,9 @@ namespace DesafioTecnicoArtycs.Infra
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd();
 
+                b.Property<DateTime>("DataCadastro")
+                        .HasDefaultValue(DateTime.Now);
+
                 b.HasKey("Id");
 
                 b.ToTable("Cursos");

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Infra", "src/DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj", "{9D863633-BAF4-4C56-B9F8-7171DBBFCCC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Infra", "src\DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj", "{9D863633-BAF4-4C56-B9F8-7171DBBFCCC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Service", "1 - Service", "{35021FCE-6DC2-4232-A832-73B59D8A0B2E}"
 EndProject
@@ -15,13 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{CF89867C-2270-466E-A8FD-0AF0BF52DE11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Application", "src/DesafioTecnicoArtycs.Application\DesafioTecnicoArtycs.Application.csproj", "{1635C268-0DDE-41B5-BA5E-AD3A637E7812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Application", "src\DesafioTecnicoArtycs.Application\DesafioTecnicoArtycs.Application.csproj", "{1635C268-0DDE-41B5-BA5E-AD3A637E7812}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Domain", "src/DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj", "{A42698AD-20F3-4885-BBAB-3149140F9A7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Domain", "src\DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj", "{A42698AD-20F3-4885-BBAB-3149140F9A7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Ui", "src/DesafioTecnicoArtycs.Ui\DesafioTecnicoArtycs.Ui.csproj", "{3A5C51DF-42D6-4A73-9666-338FA2118887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Ui", "src\DesafioTecnicoArtycs.Ui\DesafioTecnicoArtycs.Ui.csproj", "{3A5C51DF-42D6-4A73-9666-338FA2118887}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.Test", "src/DesafioTecnicoArtycs.Test\DesafioTecnicoArtycs.Test.csproj", "{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Test", "src\DesafioTecnicoArtycs.Test\DesafioTecnicoArtycs.Test.csproj", "{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.Api", "DesafioTecnicoArtycs.Api\DesafioTecnicoArtycs.Api.csproj", "{64D8FA35-2303-455F-BE10-FA786093590E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.CrossCutting.IoC", "DesafioTecnicoArtycs.CrossCutting.IoC\DesafioTecnicoArtycs.CrossCutting.IoC.csproj", "{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,14 @@ Global
 		{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64D8FA35-2303-455F-BE10-FA786093590E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D8FA35-2303-455F-BE10-FA786093590E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D8FA35-2303-455F-BE10-FA786093590E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D8FA35-2303-455F-BE10-FA786093590E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +71,8 @@ Global
 		{A42698AD-20F3-4885-BBAB-3149140F9A7A} = {336BC3FE-9FC0-45A0-8FA7-D4E1F9277B98}
 		{3A5C51DF-42D6-4A73-9666-338FA2118887} = {35021FCE-6DC2-4232-A832-73B59D8A0B2E}
 		{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6} = {CF89867C-2270-466E-A8FD-0AF0BF52DE11}
+		{64D8FA35-2303-455F-BE10-FA786093590E} = {35021FCE-6DC2-4232-A832-73B59D8A0B2E}
+		{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80} = {72714176-0D24-414B-A3BE-348E876F2EE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7BBF41D8-BB96-4A01-A6E2-1FF242710B76}

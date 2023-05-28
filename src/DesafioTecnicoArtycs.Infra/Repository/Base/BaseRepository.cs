@@ -20,6 +20,10 @@ namespace DesafioTecnicoArtycs.Infra.Repository.Base
         }
         public async Task<TEntity> Add(TEntity entity)
         {
+            if (entity.DataCadastro == DateTime.MinValue)
+                entity.DataCadastro = DateTime.Now;
+                
+
             context.Set<TEntity>().Add(entity);
             await context.SaveChangesAsync();
             return entity;
