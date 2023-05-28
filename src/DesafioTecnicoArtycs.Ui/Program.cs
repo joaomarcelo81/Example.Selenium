@@ -52,4 +52,4 @@ IHost host = Host.CreateDefaultBuilder(args)
 .Build();
 
 var cursoService = host.Services.GetService<ICursoService>();
-cursoService.BuscarDadosAlura();
+cursoService.BuscarDadosAlura("RPA");

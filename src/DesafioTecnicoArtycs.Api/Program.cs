@@ -17,6 +17,8 @@ using DesafioTecnicoArtycs.Domain.Validators;
 using DesafioTecnicoArtycs.Domain.Entities;
 using DesafioTecnicoArtycs.Domain.Dto.Request;
 using DesafioTecnicoArtycs.Application.AutoMapper;
+using System.Reflection;
+using DesafioTecnicoArtycs.Api.Filter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,7 +34,10 @@ var settings = config.GetRequiredSection("Settings").Get<Settings>();
 builder.Services.AddSingleton(settings);
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add<HttpResponseExceptionFilter>();
+});
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -50,8 +55,11 @@ builder.Services.AddSwaggerGen(c =>
             Email = "Joaomarcelo@teste.com"
 
         },
-        Description = "Web Api para exemplo de sistema"
+        Description = "Api para o Desafio proposto para vaga oferecida ",
+        
     });
+
+
     c.EnableAnnotations();
     c.AddSecurityDefinition("apikey", new OpenApiSecurityScheme
     {
