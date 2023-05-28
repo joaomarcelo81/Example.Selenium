@@ -27,24 +27,31 @@ IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .AddEnvironmentVariables()
     .Build();
-Settings settings = config.GetRequiredSection("Settings").Get<Settings>();
+var settings = config.GetRequiredSection("Settings").Get<Settings>();
 
-// Add services to the container.
+builder.Services.AddSingleton(settings);
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
 builder.Services.AddEndpointsApiExplorer();
+
+
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "Curso Api", Version = "v1", Contact = new OpenApiContact() { 
-    Name = "João",
-    Email = "Joaomarcelo@teste.com"
-    
-    },
-    Description = "Web Api para exemplo de sistema"
+    c.SwaggerDoc("v1", new()
+    {
+        Title = "Curso Api",
+        Version = "v1",
+        Contact = new OpenApiContact()
+        {
+            Name = "João",
+            Email = "Joaomarcelo@teste.com"
+
+        },
+        Description = "Web Api para exemplo de sistema"
     });
-
-
     c.EnableAnnotations();
     c.AddSecurityDefinition("apikey", new OpenApiSecurityScheme
     {
@@ -63,8 +70,6 @@ builder.Services.AddSwaggerGen(c =>
             new List<string>()
         }
     });
-
-
 });
 
 
@@ -112,9 +117,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-
-//app.Logger.LogInformation("Adding Routes");
-//app.MapGet("/EstaAtivo", () => "Está ativo");
-//app.Logger.LogInformation("Starting the app");
 
 app.Run();

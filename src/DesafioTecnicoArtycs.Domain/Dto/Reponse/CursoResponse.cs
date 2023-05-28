@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DesafioTecnicoArtycs.Domain.Dto.Reponse
 {
+    /// <summary>
+    /// DTO Curso para as Respostas
+    /// </summary>
     public class CursoResponse
     {
         public int Id { get; set; }

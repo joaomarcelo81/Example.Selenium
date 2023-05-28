@@ -27,10 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesafioTecnicoArtycs.Application\DesafioTecnicoArtycs.Application.csproj" />
     <ProjectReference Include="..\DesafioTecnicoArtycs.CrossCutting.IoC\DesafioTecnicoArtycs.CrossCutting.IoC.csproj" />
-    <ProjectReference Include="..\src\DesafioTecnicoArtycs.Application\DesafioTecnicoArtycs.Application.csproj" />
-    <ProjectReference Include="..\src\DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj" />
-    <ProjectReference Include="..\src\DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj" />
+    <ProjectReference Include="..\DesafioTecnicoArtycs.Domain\DesafioTecnicoArtycs.Domain.csproj" />
+    <ProjectReference Include="..\DesafioTecnicoArtycs.Infra\DesafioTecnicoArtycs.Infra.csproj" />
   </ItemGroup>
 
 </Project>

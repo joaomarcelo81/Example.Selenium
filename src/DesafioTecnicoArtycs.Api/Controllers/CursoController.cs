@@ -4,17 +4,14 @@ using DesafioTecnicoArtycs.Domain.Dto.Reponse;
 using DesafioTecnicoArtycs.Domain.Dto.Request;
 using DesafioTecnicoArtycs.Domain.Entities;
 using DesafioTecnicoArtycs.Domain.Interfaces.Services;
-using DesafioTecnicoArtycs.Infra.Migrations;
 using FluentValidation;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
 namespace DesafioTecnicoArtycs.Api.Controllers
 {
-    
+
     //[Authorize]
     [Route("api/curso")]
     [ApiController]

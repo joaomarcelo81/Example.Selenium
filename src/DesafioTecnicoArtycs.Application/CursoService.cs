@@ -23,10 +23,13 @@ namespace DesafioTecnicoArtycs.Application
 
         private readonly ILogger<CursoService> _logger;
 
-        public CursoService(ILogger<CursoService> logger, IRepository<Curso> cursoRepository)
+        private readonly Settings _settings;
+
+        public CursoService(ILogger<CursoService> logger, Settings settings, IRepository<Curso> cursoRepository)
         {
             _cursoRepository = cursoRepository;
             _logger = logger;
+            _settings = settings;
         }
 
         public async Task<Curso> Adicionar(Curso curso)
@@ -72,7 +75,7 @@ namespace DesafioTecnicoArtycs.Application
 
 
 
-            IWebDriver driver = new ChromeDriver(@"D:\\Selenium\\chromedriver", chromeOptions);
+            IWebDriver driver = new ChromeDriver(_settings.CaminhoWebDriverChrome, chromeOptions);
 
             AbrirPortal(driver);
 

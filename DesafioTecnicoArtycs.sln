@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Ui", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioTecnicoArtycs.Test", "src\DesafioTecnicoArtycs.Test\DesafioTecnicoArtycs.Test.csproj", "{836EE944-CBDC-4DC2-BFC3-84F4FCA886A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.Api", "DesafioTecnicoArtycs.Api\DesafioTecnicoArtycs.Api.csproj", "{64D8FA35-2303-455F-BE10-FA786093590E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.Api", "src\DesafioTecnicoArtycs.Api\DesafioTecnicoArtycs.Api.csproj", "{64D8FA35-2303-455F-BE10-FA786093590E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.CrossCutting.IoC", "DesafioTecnicoArtycs.CrossCutting.IoC\DesafioTecnicoArtycs.CrossCutting.IoC.csproj", "{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTecnicoArtycs.CrossCutting.IoC", "src\DesafioTecnicoArtycs.CrossCutting.IoC\DesafioTecnicoArtycs.CrossCutting.IoC.csproj", "{6F4DF81C-95CD-4D3B-908D-1D9FC5C26D80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
