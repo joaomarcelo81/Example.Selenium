@@ -38,7 +38,8 @@ namespace DesafioTecnicoArtycs.Api.Controllers
         [SwaggerResponse((int)HttpStatusCode.OK, "Retorna os dados de um curso")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, Constantes.BadRequestMessage)]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, Constantes.UnauthorizedMessage)]
-        [SwaggerResponse((int)HttpStatusCode.InternalServerError, Constantes.ErroInesperadoMessage)]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, "Curso não econtrado")]
+        [SwaggerResponse((int)HttpStatusCode.InternalServerError, Constantes.ErroInesperadoMessage)]      
         public async Task<ActionResult<CursoResponse>> ObterCurso(int id)
         {
 
@@ -158,6 +159,7 @@ namespace DesafioTecnicoArtycs.Api.Controllers
         [SwaggerResponse((int)HttpStatusCode.OK, Constantes.SuccessMessage)]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, Constantes.BadRequestMessage)]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, Constantes.UnauthorizedMessage)]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, "Sem resultados para exibir")]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Constantes.ErroInesperadoMessage)]
         public async Task<IActionResult> BuscarDadosPesquisa(string busca)
         {
@@ -165,7 +167,11 @@ namespace DesafioTecnicoArtycs.Api.Controllers
             {
                 return BadRequest("Parametro da busca precisa estar preenchido");
             }
-            await _cursoService.BuscarDadosAlura(busca);
+            var resposta = await _cursoService.BuscarDadosAlura(busca);
+
+            if(resposta== 0)
+                return NotFound("Sem resultados para exibir");
+
             return Ok();
         }
     }

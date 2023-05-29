@@ -114,7 +114,7 @@ namespace DesafioTecnicoArtycs.Application
                 throw;
             }         
         }
-        public async Task BuscarDadosAlura(string busca)
+        public async Task<int> BuscarDadosAlura(string busca)
         {         
 
             _logger.LogInformation($"Buscando dados na lista");
@@ -125,11 +125,10 @@ namespace DesafioTecnicoArtycs.Application
 
             IWebDriver driver = new ChromeDriver(_settings.CaminhoWebDriverChrome, chromeOptions);
 
-            AbrirPortal(driver, busca);
+            var paginas = AbrirPortal(driver, busca);
 
 
-            var paginas = driver.FindElements(By.XPath("//*[@id=\"busca\"]/nav/nav/a")).Count;
-
+           
          
 
 
@@ -233,14 +232,15 @@ namespace DesafioTecnicoArtycs.Application
                             counter--;
                     }
                 }
-            }
-            
+            }            
 
             driver.Quit();
 
+            return paginas;
+
         }
 
-        private void AbrirPortal(IWebDriver driver, string busca)
+        private int AbrirPortal(IWebDriver driver, string busca)
         {
             try
             {
@@ -255,7 +255,13 @@ namespace DesafioTecnicoArtycs.Application
                 driver.FindElement(By.XPath("/html/body/div[2]/div/header/div/nav/div[2]/div/form/button")).Click();
                 
                 Thread.Sleep(2000);
+
                 
+
+                var paginas = driver.FindElements(By.XPath("//*[@id=\"busca\"]/nav/nav/a")).Count;
+
+                return paginas;
+
             }
             catch (Exception ex)
             {
@@ -264,6 +270,7 @@ namespace DesafioTecnicoArtycs.Application
 
                 throw;
             }
+           
         }
     }
 }
