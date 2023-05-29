@@ -1,4 +1,6 @@
-﻿using DesafioTecnicoArtycs.Domain.Entities;
+﻿using DesafioTecnicoArtycs.Domain.Dto.Reponse;
+using DesafioTecnicoArtycs.Domain.Dto.Request;
+using DesafioTecnicoArtycs.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,11 @@ namespace DesafioTecnicoArtycs.Domain.Interfaces.Services
 {
     public interface ICursoService
     {
-
-        Task<Curso> Atualizar(Curso curso);
-        Task<Curso> Adicionar(Curso curso);
-        Task<IList<Curso>> listaCursos();
-
-        Task BuscarDadosAlura();
+        Task<CursoResponse> ObterCurso(int Id);
+        Task<int> Atualizar(int Id, CursoRequest curso);
+        Task<int> Adicionar(CursoRequest curso);
+        Task<IList<CursoResponse>> listaCursos();
+        Task<int> RemoverCurso(int Id);
+        Task BuscarDadosAlura(string nomeCurso);
     }
 }
