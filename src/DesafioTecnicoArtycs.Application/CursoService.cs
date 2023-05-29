@@ -99,7 +99,6 @@ namespace DesafioTecnicoArtycs.Application
                 _logger.LogError(ex, $"Erro ao remover o curso");
                 throw;
             }
-        }        
         public async Task<IList<CursoResponse>> listaCursos()
         {    
             _logger.LogInformation($"listando todos os cursos");
