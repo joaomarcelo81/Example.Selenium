@@ -16,6 +16,6 @@ namespace DesafioTecnicoArtycs.Domain.Interfaces.Services
         Task<int> Adicionar(CursoRequest curso);
         Task<IList<CursoResponse>> listaCursos();
         Task<int> RemoverCurso(int Id);
-        Task BuscarDadosAlura(string nomeCurso);
+        Task<int> BuscarDadosAlura(string nomeCurso);
     }
 }

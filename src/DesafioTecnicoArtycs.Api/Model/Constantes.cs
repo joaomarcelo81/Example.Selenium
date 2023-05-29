@@ -10,5 +10,6 @@
 
 
         public const string ErroInesperadoMessage = "Aconteceu um erro ao processar sua requisição";
+        public const string NotFoundMessage = "Resultado não encontrado";
     }
 }
