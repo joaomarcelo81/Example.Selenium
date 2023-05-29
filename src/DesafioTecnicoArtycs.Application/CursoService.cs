@@ -85,7 +85,6 @@ namespace DesafioTecnicoArtycs.Application
                 throw;
             }
         }
-
         public async Task<int> RemoverCurso(int id)
         {
             _logger.LogInformation($"Remover um curso pelo id");
@@ -100,8 +99,6 @@ namespace DesafioTecnicoArtycs.Application
                 _logger.LogError(ex, $"Erro ao remover o curso");
                 throw;
             }
-        }
-        
         public async Task<IList<CursoResponse>> listaCursos()
         {    
             _logger.LogInformation($"listando todos os cursos");
