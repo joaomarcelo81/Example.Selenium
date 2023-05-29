@@ -55,7 +55,7 @@ builder.Services.AddSwaggerGen(c =>
             Email = "Joaomarcelo@teste.com"
 
         },
-        Description = "Api para o Desafio proposto para vaga oferecida ",
+        Description = "Api para o Desafio proposto para vaga oferecida Não esquecer de inserir a Apikey: 414fde74-d5e6-48ab-8063-9111c6b74d71",
         
     });
 
