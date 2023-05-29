@@ -1,9 +1,3 @@
-<style>
-.scrollbar {
-    max-height: 300px; /* Define a altura máxima para o bloco de código */
-    overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
-}
-</style>
 
 # Passos para execução do Projeto
 

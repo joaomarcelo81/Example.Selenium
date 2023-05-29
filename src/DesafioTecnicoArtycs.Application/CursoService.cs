@@ -85,7 +85,6 @@ namespace DesafioTecnicoArtycs.Application
                 throw;
             }
         }
-
         public async Task<int> RemoverCurso(int id)
         {
             _logger.LogInformation($"Remover um curso pelo id");
@@ -101,7 +100,6 @@ namespace DesafioTecnicoArtycs.Application
                 throw;
             }
         }
-        
         public async Task<IList<CursoResponse>> listaCursos()
         {    
             _logger.LogInformation($"listando todos os cursos");
@@ -129,106 +127,143 @@ namespace DesafioTecnicoArtycs.Application
 
             AbrirPortal(driver, busca);
 
-            var listaBuscas = driver.FindElements(By.ClassName("busca-resultado-container"));
-            var counter = 1;
 
-            foreach (var item in listaBuscas)
+            var paginas = driver.FindElements(By.XPath("//*[@id=\"busca\"]/nav/nav/a")).Count;
+
+         
+
+
+            for (int i = 1; i <= paginas; i++)
             {
-                var curso = new DadosCurso();
                 try
                 {
-                    var itemBuscado = driver.FindElement(By.XPath($"/html/body/div[2]/div[2]/section/ul/li[{counter}]/a/div/h4")).Text;
+                    driver.FindElement(By.XPath($"/html/body/div[2]/div[2]/nav/nav/a[{i}]")).Click();
 
-                    driver.FindElement(By.XPath($"//*[@id=\"busca-resultados\"]/ul/li[{counter}]/a")).Click();
-                    counter++;
-
-
-                    if (ValidarElementos.IsElementPresent(driver, By.ClassName("curso-banner-course-title")) != "")
-                    {
-                        curso.Titulo = ValidarElementos.IsElementPresent(driver, By.ClassName("curso-banner-course-title"));
-                    }
-                    if (ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-headline-titulo")) != "")
-                    {
-                        curso.Titulo = ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-headline-titulo"));
-                    }
-                    if (ValidarElementos.IsElementPresent(driver, By.ClassName("courseInfo-card-wrapper-infos")) != "")
-                    {
-                        curso.CargaHoraria = ValidarElementos.IsElementPresent(driver, By.ClassName("courseInfo-card-wrapper-infos"));
-                    }
-                    if (ValidarElementos.IsElementPresent(driver, By.ClassName("formacao__info-destaque")) != "")
-                    {
-                        curso.CargaHoraria = ValidarElementos.IsElementPresent(driver, By.ClassName("formacao__info-destaque"));
-                    }
-
-                    if (ValidarElementos.IsElementPresent(driver, By.ClassName("course-list")) != "")
-                    {
-                        curso.Descricao = ValidarElementos.IsElementPresent(driver, By.ClassName("course-list"));
-                    }
-                    if (ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-descricao-texto")) != "")
-                    {
-                        curso.Descricao = ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-descricao-texto"));
-                    }
-
-                    if (ValidarElementos.IsElementPresent(driver, By.ClassName("instructor-title--name")) != "")
-                    {
-                        curso.Professor = driver.FindElement(By.ClassName("instructor-title--name")).Text;
-                    }
-                    else
-                    {
-                        curso.Professor = "Sem Professor definido.";
-                    }
-
-                    if (curso.Titulo != null && curso.Titulo != "")
-                    {
-                        await Adicionar(new CursoRequest()
-                        {
-                            CargaHoraria = curso.CargaHoraria,
-                            Descricao = curso.Descricao,
-                            Professor = curso.Professor,
-                            Titulo = curso.Titulo
-                        });
-                        _logger.LogInformation($"Adicionou Curso: {curso}");
-                    }
-                    else
-                    {
-                        _logger.LogWarning($"Não foi encontrado informações da: {itemBuscado} no {counter}º item");
-                    }
-
-                    driver.Navigate().Back();
-
-                    Thread.Sleep(2000);
+                    Thread.Sleep(3000);
                 }
                 catch (Exception ex)
                 {
                     _logger.LogWarning(ex
-                        , @"Ocorreu um erro ao buscar os dados do site na busca {counter}º ", curso);
-                    if (ex.Message.IndexOf("busca-resultados") > 0)
+                      , @$"Ocorreu um erro ao buscar os dados do site na busca ", i);
+
+                    throw;
+                }
+             
+
+                var listaBuscas = driver.FindElements(By.ClassName("busca-resultado-container"));
+
+                var counter = 1;
+
+                foreach (var item in listaBuscas)
+                {
+                    var curso = new DadosCurso();
+                    try
                     {
-                        AbrirPortal(driver, busca);
+                        var itemBuscado = driver.FindElement(By.XPath($"/html/body/div[2]/div[2]/section/ul/li[{counter}]/a/div/h4")).Text;
+
+                        driver.FindElement(By.XPath($"//*[@id=\"busca-resultados\"]/ul/li[{counter}]/a")).Click();
+                        counter++;
+
+
+                        if (ValidarElementos.IsElementPresent(driver, By.ClassName("curso-banner-course-title")) != "")
+                        {
+                            curso.Titulo = ValidarElementos.IsElementPresent(driver, By.ClassName("curso-banner-course-title"));
+                        }
+                        if (ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-headline-titulo")) != "")
+                        {
+                            curso.Titulo = ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-headline-titulo"));
+                        }
+                        if (ValidarElementos.IsElementPresent(driver, By.ClassName("courseInfo-card-wrapper-infos")) != "")
+                        {
+                            curso.CargaHoraria = ValidarElementos.IsElementPresent(driver, By.ClassName("courseInfo-card-wrapper-infos"));
+                        }
+                        if (ValidarElementos.IsElementPresent(driver, By.ClassName("formacao__info-destaque")) != "")
+                        {
+                            curso.CargaHoraria = ValidarElementos.IsElementPresent(driver, By.ClassName("formacao__info-destaque"));
+                        }
+
+                        if (ValidarElementos.IsElementPresent(driver, By.ClassName("course-list")) != "")
+                        {
+                            curso.Descricao = ValidarElementos.IsElementPresent(driver, By.ClassName("course-list"));
+                        }
+                        if (ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-descricao-texto")) != "")
+                        {
+                            curso.Descricao = ValidarElementos.IsElementPresent(driver, By.ClassName("formacao-descricao-texto"));
+                        }
+
+                        if (ValidarElementos.IsElementPresent(driver, By.ClassName("instructor-title--name")) != "")
+                        {
+                            curso.Professor = driver.FindElement(By.ClassName("instructor-title--name")).Text;
+                        }
+                        else
+                        {
+                            curso.Professor = "Sem Professor definido.";
+                        }
+
+                        if (curso.Titulo != null && curso.Titulo != "")
+                        {
+                            await Adicionar(new CursoRequest()
+                            {
+                                CargaHoraria = curso.CargaHoraria,
+                                Descricao = curso.Descricao,
+                                Professor = curso.Professor,
+                                Titulo = curso.Titulo
+                            });
+                            _logger.LogInformation($"Adicionou Curso: {curso}");
+                        }
+                        else
+                        {
+                            _logger.LogWarning($"Não foi encontrado informações da: {itemBuscado} no {counter}º item");
+                        }
+
+                        driver.Navigate().Back();
+
+                        Thread.Sleep(2000);
                     }
-                    driver.Navigate().Back();
-                    if (counter > 0)
-                        counter--;
+                    catch (Exception ex)
+                    {
+                        _logger.LogWarning(ex
+                            , @"Ocorreu um erro ao buscar os dados do site na busca {counter}º ", curso);
+                        if (ex.Message.IndexOf("busca-resultados") > 0)
+                        {
+                            AbrirPortal(driver, busca);
+                        }
+                        driver.Navigate().Back();
+                        if (counter > 0)
+                            counter--;
+                    }
                 }
             }
+            
 
             driver.Quit();
 
         }
 
-        private static void AbrirPortal(IWebDriver driver, string busca)
-        {       
+        private void AbrirPortal(IWebDriver driver, string busca)
+        {
+            try
+            {
+                driver.Navigate().GoToUrl("https://www.alura.com.br/");
+                
+                Thread.Sleep(1000);
 
-            driver.Navigate().GoToUrl("https://www.alura.com.br/");
-            Thread.Sleep(1000);
+                var porId = driver.FindElement(By.XPath("//*[@id=\"header-barraBusca-form-campoBusca\"]"));
 
-            var porId = driver.FindElement(By.XPath("//*[@id=\"header-barraBusca-form-campoBusca\"]"));
+                porId.SendKeys(busca);
 
-            porId.SendKeys(busca);
+                driver.FindElement(By.XPath("/html/body/div[2]/div/header/div/nav/div[2]/div/form/button")).Click();
+                
+                Thread.Sleep(2000);
+                
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex
+                      , @"Ocorreu um erro ao buscar os dados do site na busca ");
 
-            driver.FindElement(By.XPath("/html/body/div[2]/div/header/div/nav/div[2]/div/form/button")).Click();
-            Thread.Sleep(1000);
-            Logger.INFO($"Buscando o {busca}");
+                throw;
+            }
         }
     }
 }
