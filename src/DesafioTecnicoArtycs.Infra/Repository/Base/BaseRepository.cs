@@ -55,6 +55,9 @@ namespace DesafioTecnicoArtycs.Infra.Repository.Base
 
         public async Task<TEntity> Update(TEntity entity)
         {
+            if (entity.DataCadastro == DateTime.MinValue)
+                entity.DataCadastro = DateTime.Now;
+
             context.Entry(entity).State = EntityState.Modified;
             await context.SaveChangesAsync();
             return entity;

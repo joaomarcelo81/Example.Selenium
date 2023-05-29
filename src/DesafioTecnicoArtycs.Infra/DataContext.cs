@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using DesafioTecnicoArtycs.Domain.Entities;
+using DesafioTecnicoArtycs.Domain.Util;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -13,23 +14,20 @@ namespace DesafioTecnicoArtycs.Infra
     public class DataContext : DbContext
     {
         protected readonly IConfiguration Configuration;
+        protected readonly Settings settings;
 
-        public DataContext(IConfiguration configuration)
+        public DataContext(Settings _settings, IConfiguration configuration)
         {
             Configuration = configuration;
+            settings = _settings;
+
         }
 
 
-        //public DataContext(DbContextOptions<DataContext> options) : base(options)
-        //{
-        //}
-
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            var cns = "Data Source=.\\DesafioTecnicoArtycsDB.db";//context.Configuration.GetConnectionString("DesafioTecnicoArtycsConnection");
-
-            // connect to sqlite database
-            options.UseSqlite(cns);
+           
+            options.UseSqlite(settings.ConnectionString);
         
             options.EnableDetailedErrors(true);
         }
